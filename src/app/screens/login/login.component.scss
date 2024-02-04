@@ -1,0 +1,65 @@
+@import "_buttons";
+
+.login_component {
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5em 0;
+  background-image: url("https://images.pexels.com/photos/7078666/pexels-photo-7078666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-repeat: round;
+  background-size: cover;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+  }
+
+  .content {
+    background-color: #e5e5e5a6;
+    border: 1px solid #cecece;
+    width: 60em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: -3px 5px 4px rgb(153, 153, 153);
+
+    @media only screen and (max-width: 768px) {
+      height: 100%;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    app-form {
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+
+      @media only screen and (max-width: 768px) {
+        height: auto;
+      }
+
+      .action_buttons {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .primary {
+          width: 100%;
+          @include primary;
+        }
+
+        .secondary {
+          @include secondary;
+        }
+      }
+    }
+  }
+}

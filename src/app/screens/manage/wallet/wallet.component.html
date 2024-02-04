@@ -1,0 +1,71 @@
+<div class="wallet_component">
+  <div class="wallet_actions">
+    <label class="wallet_title_cards input">Entradas</label>
+    <div class="wallet_output wallet_body">
+      <div class="wallet_in">
+        <label class="wallet_title_cards total">Carteira</label>
+        <div class="currency">
+          <p>{{ totalWallet | currency: 'BRL' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="wallet_input wallet_body">
+      <form [formGroup]="inputForm" class="content" (ngSubmit)="send()">
+        <app-form [fields]="inputFields" [form]="inputForm">
+          <ng-container actions>
+            <button class="primary" type="submit" [disabled]="inputForm.invalid">Salvar</button>
+          </ng-container>
+        </app-form>
+      </form>
+    </div>
+  </div>
+  <div class="wallet_content">
+    <table>
+      <thead>
+        <tr>
+          <th class="item_icon">
+            <span class="material-symbols-outlined">
+              arrow_upward
+            </span>
+          </th>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Recebido</th>
+          <th>Valor</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of walletAccounts">
+          <tr>
+            <td class="item_icon">
+              <span class="material-symbols-outlined">
+                arrow_upward
+              </span>
+            </td>
+            <td>{{ item.at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ item.method }}</td>
+            <td>{{ item.by }}</td>
+            <td>{{ item.value }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+        </ng-container>
+        <!-- <tr>
+          <td>
+            <span class="material-symbols-outlined">
+              arrow_downward
+            </span>
+          </td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+        </tr> -->
+      </tbody>
+      <tfoot>
+        <tr></tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

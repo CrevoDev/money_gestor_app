@@ -1,0 +1,23 @@
+<ng-content *ngIf="!snav.opened"></ng-content>
+<div class="left_side desktop" *ngIf="showButtons">
+  <ng-container *ngFor="let tool of getTools()">
+    <ng-container *ngTemplateOutlet="toolTemplate; context: { tool: tool }"></ng-container>
+  </ng-container>
+</div>
+
+<div class="left_side mobile" *ngIf="snav.opened && !showButtons">
+  <ng-container *ngFor="let tool of getTools()">
+    <ng-container *ngTemplateOutlet="toolTemplate; context: { tool: tool }"></ng-container>
+  </ng-container>
+</div>
+
+<div class="right_side" *ngIf="showButtons">
+  <label>{{ user.name }}</label>
+  <!-- <span class="material-symbols-outlined">person</span> -->
+  <img src="img/Cleverson.jpeg">
+</div>
+
+<ng-template #toolTemplate let-tool="tool">
+  <button (click)="goToRoute([tool.name])" [ngClass]="{'activated': tool.name === actualRoute}">
+    <span class="material-symbols-outlined">{{ tool.icon }}</span>{{tool.label}}</button>
+</ng-template>

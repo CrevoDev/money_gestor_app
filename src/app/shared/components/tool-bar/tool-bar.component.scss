@@ -1,0 +1,58 @@
+@import '_buttons';
+
+.left_side {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    align-items: unset;
+  }
+}
+
+.right_side {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 32px;
+  margin-left: auto;
+
+  img {
+    border: 1px solid rgb(192, 192, 192);
+    object-fit: cover;
+    border-radius: 2em;
+    color: rgb(90, 90, 90);
+    width: 32px;
+    height: 100%;
+  }
+}
+
+.desktop {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile {
+  flex-direction: column;
+
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+button {
+  height: 100%;
+  @include custom;
+
+  &:hover {
+    border-bottom: 1px solid #7979fdd0
+  }
+
+  &.activated {
+    border-bottom: 1px solid #7979fdd0
+  }
+}

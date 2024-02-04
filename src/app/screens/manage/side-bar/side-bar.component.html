@@ -1,0 +1,26 @@
+<button class="menu_mobile" (click)="snav_manage.toggle()" *ngIf="!snav_manage.opened">
+  <span class="material-symbols-outlined item_list" title="Menu">
+    menu
+  </span>
+  <p>Menu</p>
+</button>
+
+<!-- Desktop -->
+<ng-container *ngFor="let button of getButtons()">
+  <button class="buttons_desktop" (click)="openPage(button.name)">
+    <span class="material-symbols-outlined item_list">
+      {{ button.icon }}
+    </span>
+    <p>{{ button.label }}</p>
+  </button>
+</ng-container>
+
+<!-- Mobile -->
+<ng-container *ngFor="let button of getButtons()">
+  <button class="buttons_mobile" (click)="openPage(button.name)" *ngIf="snav_manage.opened">
+    <span class="material-symbols-outlined item_list">
+      {{ button.icon }}
+    </span>
+    <p>{{ button.label }}</p>
+  </button>
+</ng-container>

@@ -1,0 +1,49 @@
+<ng-container *ngTemplateOutlet="template; context: { field: field }"></ng-container>
+
+<ng-template #text let-field="field">
+  <label [for]="field.name">
+    <div class="title_field">
+      <p>{{ field.label }}</p>
+      <mat-error *ngIf="hasRequiredValidator(field.name)">*</mat-error>
+    </div>
+    <div class="input_span">
+      <ng-container *ngIf="field.type">
+        <input [type]="field.type" [placeholder]="field.placeholder || field.label"
+          [formControl]="form.get(field.name) || field.name" [required]="hasRequiredValidator(field.name)">
+        <span class="material-symbols-outlined" (click)="changeFieldType()" *ngIf="type === 'password'">
+          {{ hidePass? 'visibility' : 'visibility_off'}}
+        </span>
+      </ng-container>
+    </div>
+  </label>
+  <mat-error *ngIf="isFieldInvalid(field.name)">{{ getErrorMessage(field.name) }}</mat-error>
+</ng-template>
+
+<ng-template #select let-field="field">
+  <label [for]="field.name">
+    <div class="title_field">
+      <p>{{ field.label }}</p>
+      <mat-error *ngIf="hasRequiredValidator(field.name)">*</mat-error>
+    </div>
+    <mat-select placeholder="Selecione" [formControl]="form.get(field.name) || field.name"
+      [required]="hasRequiredValidator(field.name)" panelClass="mat_select_class">
+      <mat-option *ngFor="let opt of field.options" [value]="opt[field.fieldValue]">
+        {{ opt[field.fieldLabel] }}
+      </mat-option>
+    </mat-select>
+  </label>
+  <mat-error *ngIf="isFieldInvalid(field.name)">{{ getErrorMessage(field.name) }}</mat-error>
+</ng-template>
+
+<ng-template #textarea let-field="field">
+  <label [for]="field.name">
+    <div class="title_field">
+      <p>{{ field.label }}</p>
+      <mat-error *ngIf="hasRequiredValidator(field.name)">*</mat-error>
+    </div>
+  </label>
+  <div>
+    <textarea [placeholder]="field.placeholder || field.label"
+      [formControl]="form.get(field.name) || field.name"></textarea>
+  </div>
+</ng-template>

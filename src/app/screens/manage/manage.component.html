@@ -1,0 +1,14 @@
+<!-- <div class="manage_component">
+</div> -->
+
+<mat-sidenav-container>
+  <mat-sidenav #snav_manage mode="push" [fixedInViewport]="true" fixedTopGap="49">
+    <app-side-bar [snav_manage]="snav_manage"></app-side-bar>
+  </mat-sidenav>
+  <mat-sidenav-content class="manage_component">
+    <app-side-bar [snav_manage]="snav_manage" *ngIf="!snav_manage.opened"></app-side-bar>
+    <div class="manage_router">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,12 @@
+<div class="home_component">
+  <div class="output_content">
+    <h4>Saidas este mês</h4>
+    <div class="output_values">
+      <ng-container *ngFor="let output of outputs">
+        <label><p>{{output | currency: 'BRL'}}</p> - <p>{{ date.toLocaleDateString() }}</p></label>
+      </ng-container>
+    </div>
+    <label class="total">Valor Total: <p>{{ totalValue | currency: 'BRL'}}</p></label>
+    <button class="primary">Reload</button>
+  </div>
+</div>

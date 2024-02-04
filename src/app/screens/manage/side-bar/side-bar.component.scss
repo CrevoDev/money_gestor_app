@@ -1,0 +1,56 @@
+@import "_buttons";
+
+button {
+  @include list_button;
+  padding: 1rem;
+  max-height: 56px;
+  max-width: 56px;
+  overflow: hidden;
+  transition: max-width ease 1s;
+  position: relative;
+
+  p {
+    visibility: hidden;
+    position: absolute;
+    transition: visibility ease 1s;
+    opacity: 0;
+  }
+
+  &:hover {
+    justify-content: space-between !important;
+    max-width: 100%;
+
+    p {
+      visibility: visible;
+      transition: opacity ease 1s;
+      position: relative;
+      opacity: 1;
+    }
+  }
+
+  &.buttons_desktop {
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.menu_mobile {
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.buttons_mobile {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    flex-direction: row-reverse;
+
+    p {
+      visibility: visible;
+      transition: visibility ease 1s;
+      position: relative;
+      opacity: 1;
+    }
+  }
+}

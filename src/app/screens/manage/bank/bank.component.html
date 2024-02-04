@@ -1,0 +1,69 @@
+<div class="bank_component">
+  <div class="bank_actions">
+    <div class="bank_input bank_body">
+      <label class="bank_title_cards input">Entradas</label>
+      <form [formGroup]="inputForm" class="content" (ngSubmit)="send()">
+        <app-form [fields]="inputFields" [form]="inputForm">
+          <ng-container actions>
+            <button class="primary" type="submit" [disabled]="inputForm.invalid">Salvar</button>
+          </ng-container>
+        </app-form>
+      </form>
+    </div>
+    <div class="bank_output bank_body">
+      <label class="bank_title_cards output">Saidas</label>
+      <form [formGroup]="outputForm" class="content" (ngSubmit)="send()">
+        <app-form [fields]="outputFields" [form]="outputForm">
+          <ng-container actions>
+            <button class="primary" type="submit" [disabled]="outputForm.invalid">Salvar</button>
+          </ng-container>
+        </app-form>
+      </form>
+    </div>
+  </div>
+  <div class="bank_content">
+    <table>
+      <thead>
+        <tr>
+          <th class="item_icon">
+            <span class="material-symbols-outlined">
+              arrow_upward
+            </span>
+          </th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of bankAccounts">
+          <tr>
+            <td class="item_icon">
+              <span class="material-symbols-outlined">
+                arrow_upward
+              </span>
+            </td>
+            <td>{{ item.at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ item.value }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+        </ng-container>
+        <!-- <tr>
+          <td>
+            <span class="material-symbols-outlined">
+              arrow_downward
+            </span>
+          </td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+        </tr> -->
+      </tbody>
+      <tfoot>
+        <tr></tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

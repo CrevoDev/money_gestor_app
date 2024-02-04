@@ -1,0 +1,14 @@
+<div class="login_component">
+  <form [formGroup]="form" class="content" (ngSubmit)="send()">
+    <app-form [fields]="fields" [form]="form">
+      <ng-container actions>
+        <div class="action_buttons">
+          <button class="primary" type="submit" [disabled]="form.invalid">Entrar</button>
+          <a routerLink="register">Registrar-se</a>
+          <a routerLink="forgot">Esqueci a senha</a>
+        </div>
+      </ng-container>
+    </app-form>
+    <img src="/img/mg_logo.png">
+  </form>
+</div>

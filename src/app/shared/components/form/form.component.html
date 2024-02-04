@@ -1,0 +1,5 @@
+<ng-container *ngFor="let field of fields">
+  <app-form-field [field]="field" [form]="form">
+  </app-form-field>
+</ng-container>
+<ng-content select="[actions]"></ng-content>

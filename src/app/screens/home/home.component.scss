@@ -1,0 +1,49 @@
+@import "_buttons";
+
+.home_component {
+  height: 100%;
+  width: 100%;
+  padding: 1rem 2rem;
+
+  .output_content {
+    width: 30em;
+    max-height: 20em;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 4px;
+
+    .output_values {
+      border: 1px solid rgba(128, 128, 128, 0.575);
+      height: 100%;
+      width: 100%;
+      display: inline-flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      overflow: auto;
+      border-radius: 4px;
+
+      label {
+        gap: 0.5rem;
+      }
+    }
+
+    label {
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.575);
+
+      &.total {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+button {
+  @include primary;
+}

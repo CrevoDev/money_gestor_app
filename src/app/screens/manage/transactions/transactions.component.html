@@ -1,0 +1,71 @@
+<div class="transactions_component">
+  <div class="transactions_actions">
+    <label class="transactions_title_cards output">Saidas</label>
+    <div class="transactions_output transactions_body">
+      <div class="transactions_in">
+        <label class="transactions_title_cards total">Total</label>
+        <div class="currency">
+          <p>{{ totalTransactions | currency: 'BRL' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="transactions_input transactions_body">
+      <form [formGroup]="outputForm" class="content" (ngSubmit)="send()">
+        <app-form [fields]="outputFields" [form]="outputForm">
+          <ng-container actions>
+            <button class="primary" type="submit" [disabled]="outputForm.invalid">Salvar</button>
+          </ng-container>
+        </app-form>
+      </form>
+    </div>
+  </div>
+  <div class="transactions_content">
+    <table>
+      <thead>
+        <tr>
+          <th class="item_icon">
+            <span class="material-symbols-outlined">
+              arrow_upward
+            </span>
+          </th>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Enviado para</th>
+          <th>Valor</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of transactionsAccounts">
+          <tr>
+            <td class="item_icon">
+              <span class="material-symbols-outlined">
+                arrow_upward
+              </span>
+            </td>
+            <td>{{ item.at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ item.method }}</td>
+            <td>{{ item.by }}</td>
+            <td>{{ item.value }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+        </ng-container>
+        <!-- <tr>
+          <td>
+            <span class="material-symbols-outlined">
+              arrow_downward
+            </span>
+          </td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+          <td>teste</td>
+        </tr> -->
+      </tbody>
+      <tfoot>
+        <tr></tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
