@@ -1,213 +1,97 @@
 @import "_buttons";
 
 .transactions_component {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  height: 100%;
+  gap: 20px;
 
   .transactions_actions {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
     width: 100%;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
-    box-shadow: 2px 2px 6px 3px #e5e5e5;
-    flex: 0;
 
-    @media only screen and (max-width: 768px) {
-      flex-direction: column;
+    .transactions_title_cards {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .transactions_output {
+      flex: 0;
     }
 
     .transactions_input {
       flex: 1;
     }
 
-    .transactions_title_cards {
-      display: inline-flex;
-      width: 100%;
-      color: #fff;
-      padding: 1rem;
-
-      &.input {
-        background-color: #00b4d8;
-      }
-
-      &.output {
-        background-color: #d00000;
-      }
+    .transactions_body {
+      display: flex;
+      gap: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
     }
 
-    .transactions_body {
+    .total {
+      font-weight: bold;
+    }
+
+    .currency {
+      font-size: 1.2em;
+      color: #007bff; /* Cor para destacar o valor */
+    }
+
+    form {
+      height: 100%;
       width: 100%;
-      background-color: #fff;
-      border-radius: 4px;
       display: inline-flex;
       flex-direction: column;
+      padding: 1rem;
 
-      form {
+      app-form {
         height: 100%;
         width: 100%;
         display: inline-flex;
-        flex-direction: column;
-        padding: 1rem;
-
-        app-form {
-          height: 100%;
-          width: 100%;
-          display: inline-flex;
-          flex-wrap: wrap;
-          gap: 8px;
-
-        }
-
-        .primary {
-          width: 100%;
-          @include primary;
-        }
-
-        .secondary {
-          @include secondary;
-        }
-
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
-    }
-
-    .transactions_output {
-      border-radius: 50%;
-      background-color: #d62828;
-      padding: 4px;
-      width: 215px;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0px 0px 15px -1px #f07167;
-      flex: 0;
-
-      .transactions_in {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: #fff;
-        border-radius: 50%;
-        height: 100%;
+      .primary {
         width: 100%;
-        padding: 3rem;
-
-        .transactions_title_cards {
-          width: auto;
-        }
-
-        label {
-          color: #d62828;
-          font-size: 24px;
-        }
+        @include primary;
       }
 
-      .currency {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-
-        span {
-          color: #d62828;
-          font-size: 24px;
-        }
-
-        p {
-          color: #d62828;
-          font-size: 24px;
-          line-height: 0;
-        }
+      .secondary {
+        @include secondary;
       }
     }
   }
 
   .transactions_content {
-    height: 100%;
-    width: 100%;
-    background-color: #d62828;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    box-shadow: 2px 2px 6px 3px #e5e5e5;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-
     table {
       width: 100%;
-      flex: 1;
+      border-collapse: collapse;
 
-      thead {
-        color: #fff;
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
       }
 
-      tbody {
-        background-color: #fff;
-
-        tr:hover {
-          cursor: pointer;
-          background-color: #77878f;
-        }
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
       }
 
-      tfoot {
-        width: 100%;
-      }
+      .item_icon {
+        width: 30px;
+        text-align: center;
 
-      tr {
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 3rem;
-
-        &:nth-child(even) {
-          background-color: #aab9bd;
-        }
-
-        .item_icon {
-          width: 5rem;
-
-          .material-symbols-outlined {
-            padding: 0 2rem;
-          }
-        }
-
-        th {
-          width: 100%;
-          font-weight: 400;
-          text-align: center;
-
-          .material-symbols-outlined {
-            opacity: 0;
-          }
-        }
-
-        td {
-          width: 100%;
-          text-align: center;
-
-          &.item_icon {
-            border-right: 1px solid #00b4d8;
-          }
-        }
-      }
-
-      @media only screen and (max-width: 768px) {
-        tr {
-          height: auto;
-          flex-wrap: wrap;
-          justify-content: center;
-
-          .item_icon {
-            border-right: none !important;
-          }
+        .material-symbols-outlined {
+          font-size: 1.2em;
+          color: #007bff; /* Cor para os ícones */
         }
       }
     }

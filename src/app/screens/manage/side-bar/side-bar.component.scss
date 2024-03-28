@@ -5,14 +5,13 @@ button {
   padding: 1rem;
   max-height: 56px;
   max-width: 56px;
-  overflow: hidden;
   transition: max-width ease 1s;
   position: relative;
 
   p {
     visibility: hidden;
-    position: absolute;
-    transition: visibility ease 1s;
+    // position: absolute;
+    transition: opacity ease 1s, visibility ease 1s;
     opacity: 0;
   }
 
@@ -21,9 +20,8 @@ button {
     max-width: 100%;
 
     p {
+      // position: relative;
       visibility: visible;
-      transition: opacity ease 1s;
-      position: relative;
       opacity: 1;
     }
   }
